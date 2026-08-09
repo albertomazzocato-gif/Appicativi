@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origins"]
+	url = https://github.com/albertomazzocato-gif/Applicativi.git
+	fetch = +refs/heads/*:refs/remotes/origins/*
