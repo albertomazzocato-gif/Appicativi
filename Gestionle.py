@@ -118,46 +118,42 @@ def main():
     st.title("🖌️ Gestionale Preventivi - Imbianchino")
     st.write("Compila i campi per generare il preventivo in PDF e salvarlo nel database.")
 
-    with st.form("form_preventivo"):
-        cliente = st.text_input("Nome Cliente *")
-        tipo_lavoro = st.text_input("Tipo Lavoro (es. Pareti, Soffitto) *", value="Tinteggiatura pareti interne")
+    cliente = st.text_input("Nome Cliente *")
+    tipo_lavoro = st.text_input("Tipo Lavoro (es. Pareti, Soffitto) *", value="Tinteggiatura pareti interne")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        mq = st.number_input("Metri Quadri (mq)", min_value=0.0, value=120.0, step=1.0)
+    with col2:
+        prezzo_mq = st.number_input("Prezzo al mq (€)", min_value=0.0, value=5.0, step=0.5)
         
-        col1, col2 = st.columns(2)
-        with col1:
-            mq = st.number_input("Metri Quadri (mq)", min_value=0.0, value=120.0, step=1.0)
-        with col2:
-            prezzo_mq = st.number_input("Prezzo al mq (€)", min_value=0.0, value=5.0, step=0.5)
+    materiale_desc = st.text_input("Descrizione Materiali Usati", value="Idropittura lavabile")
+    costo_materiale = st.number_input("Costo Totale Materiali (€)", min_value=0.0, value=150.0, step=10.0)
+    
+    if st.button("Salva Preventivo & Genera PDF", type="primary"):
+        if not cliente.strip() or not tipo_lavoro.strip():
+            st.error("Compila almeno i campi Nome Cliente e Tipo Lavoro!")
+            return
             
-        materiale_desc = st.text_input("Descrizione Materiali Usati", value="Idropittura lavabile")
-        costo_materiale = st.number_input("Costo Totale Materiali (€)", min_value=0.0, value=150.0, step=10.0)
+        mano_opera = mq * prezzo_mq
+        costo_totale = mano_opera + costo_materiale
+        data_oggi = datetime.now().strftime("%Y-%m-%d")
         
-        submitted = st.form_submit_button("Salva Preventivo & Genera PDF")
-        
-        if submitted:
-            if not cliente.strip() or not tipo_lavoro.strip():
-                st.error("Compila almeno i campi Nome Cliente e Tipo Lavoro!")
-                return
-                
-            mano_opera = mq * prezzo_mq
-            costo_totale = mano_opera + costo_materiale
-            data_oggi = datetime.now().strftime("%Y-%m-%d")
+        try:
+            salva_su_db(data_oggi, cliente, tipo_lavoro, mq, materiale_desc, costo_materiale, mano_opera, costo_totale)
+            pdf_path = genera_pdf(data_oggi, cliente, tipo_lavoro, mq, materiale_desc, costo_materiale, mano_opera, costo_totale)
             
-            try:
-                salva_su_db(data_oggi, cliente, tipo_lavoro, mq, materiale_desc, costo_materiale, mano_opera, costo_totale)
-                pdf_path = genera_pdf(data_oggi, cliente, tipo_lavoro, mq, materiale_desc, costo_materiale, mano_opera, costo_totale)
-                
-                st.success("Preventivo completato e salvato nel database!")
-                
-                # Pulsante per scaricare il PDF direttamente dal browser
-                with open(pdf_path, "rb") as pdf_file:
-                    st.download_button(
-                        label="📥 Scarica il PDF del Preventivo",
-                        data=pdf_file,
-                        file_name=pdf_path,
-                        mime="application/pdf"
-                    )
-            except Exception as e:
-                st.error(f"Errore durante la generazione: {e}")
+            st.success("Preventivo completato e salvato nel database!")
+            
+            with open(pdf_path, "rb") as pdf_file:
+                st.download_button(
+                    label="📥 Scarica il PDF del Preventivo",
+                    data=pdf_file,
+                    file_name=pdf_path,
+                    mime="application/pdf"
+                )
+        except Exception as e:
+            st.error(f"Errore durante la generazione: {e}")
 
 if __name__ == "__main__":
     main()
