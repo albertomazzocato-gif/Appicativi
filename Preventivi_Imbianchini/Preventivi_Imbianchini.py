@@ -39,7 +39,7 @@ class PDFPreventivo(FPDF):
     def header(self):
         self.set_font('Arial', 'B', 16)
         self.set_text_color(44, 62, 80)
-        self.cell(0, 10, 'PREVENTIVO LAVORI - IMBIANCHINO - VERSIONE DI PROVA', 0, 1, 'L')
+        self.cell(0, 10, 'PREVENTIVO LAVORI - IMBIANCHINO - VERSIONE DI PROVA -', 0, 1, 'L')
         self.set_font('Arial', '', 10)
         self.set_text_color(127, 140, 141)
         self.cell(0, 5, 'Servizi di Tinteggiatura ed Edilizia Leggera', 0, 1, 'L')
@@ -112,7 +112,7 @@ def genera_pdf(data, cliente, tipo_lavoro, mq, materiale_desc, costo_materiale, 
 def main():
     inizializza_db()
     
-    st.title("Gestionale Preventivi - Imbianchino - versione di prova")
+    st.title("Gestionale Preventivi - Imbianchino - versione di prova -")
     st.write("Compila i campi per generare il preventivo in PDF e salvarlo nel database.")
 
     cliente = st.text_input("Nome Cliente *")
