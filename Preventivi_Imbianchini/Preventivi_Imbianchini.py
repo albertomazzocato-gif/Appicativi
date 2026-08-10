@@ -112,7 +112,7 @@ def genera_pdf(data, cliente, tipo_lavoro, mq, materiale_desc, costo_materiale, 
 def main():
     inizializza_db()
     
-    st.title("Gestionale Preventivi - Imbianchino")
+    st.title("Gestionale Preventivi - Imbianchino - versione di prova")
     st.write("Compila i campi per generare il preventivo in PDF e salvarlo nel database.")
 
     cliente = st.text_input("Nome Cliente *")
