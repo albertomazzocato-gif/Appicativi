@@ -37,7 +37,7 @@ def ottieni_dati(query, parametri=()):
 
 
 # --- CONFIGURAZIONE PAGINA STREAMLIT ---
-st.set_page_config(page_title="Saab-Scania - Magazzino Ricambi", layout="wide")
+st.set_page_config(page_title="Magazzino Ricambi", layout="wide")
 
 # Inizializza il database all'avvio
 inizializza_db()
@@ -45,17 +45,10 @@ inizializza_db()
 # --- INTESTAZIONE CON LOGO ---
 col_logo, col_titolo = st.columns([1, 4])
 
-with col_logo:
-  # Mostra il logo Saab-Scania (assicurati di avere il file 'logo_saab_scania.png' nella stessa cartella)
-  try:
-    st.image("logo_saab_scania.png", width=120)
-  except:
-    st.write("🛡️ [Logo Saab-Scania]")
-
 with col_titolo:
   st.title("Gestione Magazzino Ricambi - Saab-Scania")
   st.write(
-      "Portale ufficiale per il controllo e lo scarico dei componenti d'epoca."
+      "Portale ufficiale per il controllo e lo scarico di ricambi."
   )
 
 st.markdown("---")
