@@ -39,7 +39,7 @@ class PDFPreventivo(FPDF):
     def header(self):
         self.set_font('Arial', 'B', 16)
         self.set_text_color(44, 62, 80)
-        self.cell(0, 10, 'PREVENTIVO LAVORI - IMBIANCHINO', 0, 1, 'L')
+        self.cell(0, 10, 'PREVENTIVO LAVORI - IMBIANCHINO - VERSIONE DI PROVA', 0, 1, 'L')
         self.set_font('Arial', '', 10)
         self.set_text_color(127, 140, 141)
         self.cell(0, 5, 'Servizi di Tinteggiatura ed Edilizia Leggera', 0, 1, 'L')
