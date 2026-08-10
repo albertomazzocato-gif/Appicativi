@@ -1,28 +1,15 @@
-# --- Modifica nel FORM ---
-  col1, col2 = st.columns(2)
-  with col1:
-    data_inizio_str = st.text_input(
-        "Data Inizio (GG/MM/AAAA):", value="01/01/2022"
-    )
-  with col2:
-    data_fine_str = st.text_input(
-        "Data Fine (GG/MM/AAAA):",
-        value=datetime.now().strftime("%d/%m/%Y"),
-    )
+with st.form("form_calcolatore_legale"):
+    st.subheader("📋 Dati della Pratica")
 
-  # ... (resto del codice fino al submit_btn) ...
+    cliente = st.text_input("Nome Cliente / Pratica:", value="Mario Rossi")
+    cap_str = st.text_input("Capitale Iniziale (€):", value="10000")
 
-if submit_btn:
-  # ... (controlli precedenti) ...
-    try:
-      capitale = float(cap_str.replace(",", "."))
-      tasso = float(tasso_str.replace(",", "."))
-      # --- Modifica qui: usa %d/%m/%Y ---
-      d_inizio = datetime.strptime(data_inizio_str, "%d/%m/%Y")
-      d_fine = datetime.strptime(data_fine_str, "%d/%m/%Y")
-    except ValueError:
-      st.error(
-          "Controlla che i numeri siano validi e le date siano nel formato"
-          " GG/MM/AAAA (es: 01/01/2022)."
-      )
-      st.stop()
+    col1, col2 = st.columns(2)
+    with col1:
+        data_inizio_str = st.text_input("Data Inizio (GG/MM/AAAA):", value="01/01/2022")
+    with col2:
+        data_fine_str = st.text_input("Data Fine (GG/MM/AAAA):", value=datetime.now().strftime("%d/%m/%Y"))
+
+    tasso_str = st.text_input("Tasso Interesse Legale Annuo (%):", value="2.5")
+
+    submit_btn = st.form_submit_button(label="Esegui Calcolo Istantaneo", use_container_width=True)
