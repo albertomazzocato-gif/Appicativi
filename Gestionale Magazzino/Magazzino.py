@@ -48,7 +48,7 @@ col_logo, col_titolo = st.columns([1, 4])
 with col_titolo:
   st.title("Gestione Magazzino Ricambi")
   st.write(
-      "Portale ufficiale per il controllo e lo scarico di ricambi."
+      "   Portale ufficiale per il controllo e lo scarico di ricambi."
   )
 
 st.markdown("---")
