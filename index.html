@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le mie App Python</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        p.subtitle {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+        .app-card {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .app-card:hover {
+            transform: translateY(-2px);
+            background: #fafbfc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .app-title {
+            font-weight: bold;
+            color: #2980b9;
+            font-size: 16px;
+        }
+        .app-arrow {
+            color: #bdc3c7;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hub Applicazioni</h1>
+        <p class="subtitle">Seleziona un'app per avviarla</p>
+    </header>
+
+    <div class="container">
+        <!-- Sostituisci "app1.html" o il link con il percorso effettivo della tua app -->
+        <a href="app1.html" class="app-card">
+            <span class="app-title">Prima Applicazione</span>
+            <span class="app-arrow">&#10095;</span>
+        </a>
+
+        <a href="app2.html" class="app-card">
+            <span class="app-title">Seconda Applicazione</span>
+            <span class="app-arrow">&#10095;</span>
+        </a>
+
+        <!-- Aggiungi qui sotto altre righe se hai altre app -->
+    </div>
+
+</body>
+</html>
