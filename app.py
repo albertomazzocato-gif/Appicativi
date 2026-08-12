@@ -13,7 +13,7 @@ str_app.write("Benvenuto, seleziona l'applicazione che desideri avviare:")
 str_app.markdown("---")
 
 # Sezione App su Streamlit
-str_app.subheader("📊 Applicazioni Web (Streamlit)")
+str_app.subheader("📊 Applicazioni Web")
 
 # Sostituisci i link tra parentesi tonde con i tuoi veri link di Streamlit
 str_app.page_link("https://applicativi-s3drpw6hdt6rqxzmwdpprz.streamlit.app/", label="Calcolatore di Interessi", icon="💰")
