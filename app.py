@@ -8,7 +8,7 @@ str_app.set_page_config(
 )
 
 str_app.title("🚀 Le mie Applicazioni")
-str_app.write("Benvenuto nel tuo pannello di controllo centrale. Seleziona l'applicazione che desideri avviare:")
+str_app.write("Benvenuto, seleziona l'applicazione che desideri avviare:")
 
 str_app.markdown("---")
 
