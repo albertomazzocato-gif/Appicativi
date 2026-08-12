@@ -23,10 +23,3 @@ str_app.page_link("https://applicativi-pzvnvsrqnwgqsxznbcaxre.streamlit.app/", l
 
 str_app.markdown("---")
 
-# Sezione Collegamenti a GitHub
-str_app.subheader("📂 Codice Sorgente (GitHub)")
-str_app.write("Se vuoi visualizzare i codici sorgente originali nel repository `Applicativi`:")
-
-# Sostituisci con il link diretto alla cartella o al repository su GitHub
-str_app.markdown("- [🔗 Visualizza il repository su GitHub](https://github.com/tuonome/Applicativi)")
-str_app.markdown("- [🔗 Cartella Calcolatore Interessi](https://github.com/tuonome/Applicativi/tree/main/CalcolatoreInteressi)")
